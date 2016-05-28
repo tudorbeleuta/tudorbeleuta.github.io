@@ -10,46 +10,51 @@
 
   </head>
   <body>
-		<style>
-		    #map {
-			height: 60%;
-			width: 60%;
-		    }
-		    div.inline { 
-			float:left;
-			margin:10px;
-		    }
-		    #colorContainer {
-			//padding
-		    }
-		</style>
-
+	<style>
+	    #map {
+		height: 100%;
+		width: 70%;
+	    }
+	    div.inline { 
+		float:left;
+		margin:10px;
+	    }
+	    #colorContainer {
+		//padding
+	    }
+		#mainContainer {
+		height:60%;
+		width:80%;
+		margin:10%;		
+		}
+	</style>
+	<div id="mainContainer">	
 		<div id="map" class="inline"></div>
-<div id="colorContainer" class="inline">
-	<div class="inline">
-				<canvas id="safe" width="100" height="100">
-		Your browser does not support the HTML5 canvas tag.</canvas>
-		<p>safe</p>
-		<canvas id="touristy" width="100" height="100" >
-		Your browser does not support the HTML5 canvas tag.</canvas>
-		<p>touristy</p>
-		<canvas id="recreational" width="100" height="100" >
-		Your browser does not support the HTML5 canvas tag.</canvas>
-		<p>recreational</p>
+		<div id="colorContainer" class="inline">
+			<div class="inline">
+						<canvas id="safe" width="100" height="100">
+				Your browser does not support the HTML5 canvas tag.</canvas>
+				<p>safe</p>
+				<canvas id="touristy" width="100" height="100" >
+				Your browser does not support the HTML5 canvas tag.</canvas>
+				<p>touristy</p>
+				<canvas id="recreational" width="100" height="100" >
+				Your browser does not support the HTML5 canvas tag.</canvas>
+				<p>recreational</p>
+			</div>
+			<div class="inline">
+				<canvas id="fast" width="100" height="100" >
+				Your browser does not support the HTML5 canvas tag.</canvas>
+				<p>fast</p>
+				<canvas id="challenging" width="100" height="100" >
+				Your browser does not support the HTML5 canvas tag.</canvas>
+				<p>challenging</p>
+				<canvas id="crowded" width="100" height="100">
+				Your browser does not support the HTML5 canvas tag.</canvas>
+				<p>crowded</p>
+			</div>
+		</div>
 	</div>
-	<div class="inline">
-		<canvas id="fast" width="100" height="100" >
-		Your browser does not support the HTML5 canvas tag.</canvas>
-		<p>fast</p>
-		<canvas id="challenging" width="100" height="100" >
-		Your browser does not support the HTML5 canvas tag.</canvas>
-		<p>challenging</p>
-		<canvas id="crowded" width="100" height="100">
-		Your browser does not support the HTML5 canvas tag.</canvas>
-		<p>crowded</p>
-	</div>
-</div>
-
 
     <script>
 
