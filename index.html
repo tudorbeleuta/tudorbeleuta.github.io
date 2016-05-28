@@ -4,7 +4,7 @@
 		<script src="res/libs/jquery.min.js"></script>
 		<script src="res/libs/leaflet2.js"></script>
 		<script src="res/libs/skobbler-2.0.js"></script>
-
+		
 
 		<script src="res/data/edge_repo.js"></script>
 
@@ -12,24 +12,82 @@
   <body>
 		<style>
 		    #map {
-			height: 97%;
+			height: 60%;
+			width: 60%;
+		    }
+		    div.inline { 
+			float:left;
+			margin:10px;
+		    }
+		    #colorContainer {
+			//padding
 		    }
 		</style>
 
-		<div id="map"></div>
+		<div id="map" class="inline"></div>
+<div id="colorContainer" class="inline">
+	<div class="inline">
+				<canvas id="safe" width="100" height="100">
+		Your browser does not support the HTML5 canvas tag.</canvas>
+		<p>safe</p>
+		<canvas id="touristy" width="100" height="100" >
+		Your browser does not support the HTML5 canvas tag.</canvas>
+		<p>touristy</p>
+		<canvas id="recreational" width="100" height="100" >
+		Your browser does not support the HTML5 canvas tag.</canvas>
+		<p>recreational</p>
+	</div>
+	<div class="inline">
+		<canvas id="fast" width="100" height="100" >
+		Your browser does not support the HTML5 canvas tag.</canvas>
+		<p>fast</p>
+		<canvas id="challenging" width="100" height="100" >
+		Your browser does not support the HTML5 canvas tag.</canvas>
+		<p>challenging</p>
+		<canvas id="crowded" width="100" height="100">
+		Your browser does not support the HTML5 canvas tag.</canvas>
+		<p>crowded</p>
+	</div>
+</div>
+
 
     <script>
+
+
+
 
     var map;
 
   	var statColorMap={
-  				"safe":"#1b9e77",
-          "touristy":"#7570b3",
-    			"recreational": "#66a61e",
-          "fast" : "#d95f02",
-          "challenging" : "#d95f02",
-          "crowded" : "#e6ab02"
+  		"safe":"#377eb8",
+          "touristy":"#ffff33",
+    		"recreational": "#4daf4a",
+          	"fast" : "#e41a1c",
+          "challenging" : "#ff7f00",
+          	"crowded" : "#984ea3"
   	}
+
+
+		function initStatCanvasColors(){
+			for(var statName in statColorMap){
+				var canvas = document.getElementById(statName);
+				var context = canvas.getContext("2d");
+				//context.fillStyle =statColorMap[statName];
+				//context.fillRect(0, 0, 100, 50);
+				
+				var centerX = canvas.width / 2;
+			      var centerY = canvas.height / 2;
+			      var radius = 50;
+
+			      context.beginPath();
+			      context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+			      context.fillStyle =statColorMap[statName];
+			      context.fill();
+			      context.lineWidth = 1;
+			      context.strokeStyle = statColorMap[statName];
+			      context.stroke();
+			}
+		}
 
 
 
@@ -83,6 +141,7 @@
       function init(){
     		constructMap("cluj");
     		drawTraversedEdges(mapList.data,mapList.maxEdgeTraversals);
+		initStatCanvasColors();
     	}
     	init();
 
